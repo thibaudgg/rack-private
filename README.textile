@@ -1,0 +1,37 @@
+h1. Staging Gem
+
+Staging rack application purpose to protect you Rails application from anonymous and prying
+
+h1. Usage
+
+h2. Examples
+
+h3. In you Rails initilizer
+
+<pre><code>config.middleware.use 'Rack::Staging',
+  :template_path => "#{RAILS_ROOT}/app/views/staging/index.html",
+  :auth_codes => [ 'Hfgo_JHg+47', 'dh_JHg_ra988', 'fd-m*nKJ_DE7'] # Basic setup</code></pre>
+
+<pre><code>config.middleware.use 'Staging',
+  :session_key => :staging_auth, # Custom session key
+  :code_param => :staging_code", # Custom input name (<input name="staging_code" />), defult is :code
+  :template_path => "#{RAILS_ROOT}/app/views/staging/index.html",
+  :auth_codes => [ 'Hfgo_JHg+47', 'dh_JHg_ra988', 'fd-m*nKJ_DE7']</code></pre>
+
+h3. In you staging template (“#{RAILS_ROOT}/app/views/staging/index.html”)
+
+<pre><code><html>
+  <head>
+    <title>Staging application</title>
+  </head>
+  <body>
+    <h1>Please input staging code</h1>
+    <form action="/" method="post">
+      <input name="code" />
+      <input type="submit" />
+    </form>
+  </body>
+</html></code></pre>
+
+h3. … and now you are ready to protected staging!
+
