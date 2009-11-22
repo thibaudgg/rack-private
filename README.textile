@@ -1,6 +1,6 @@
 h1. Staging Gem
 
-Staging rack application purpose to protect you Rails application from anonymous and prying
+Staging rack application purpose to protect you Rails application from anonymous and prying.
 
 h1. Usage
 

@@ -5,12 +5,14 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "staging"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
-    gem.email = "koss@octolab.ru"
+    gem.summary = %Q{Protect you Rails application from anonymous and prying.}
+    gem.description = %Q{Staging rack application purpose to protect you Rails application from anonymous and prying.}
+    gem.email = "kossnocorp@gmail.com"
     gem.homepage = "http://github.com/kossnocorp/staging"
     gem.authors = ["Aleksandr Koss"]
-    gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
+    gem.version = '0.1'
+
+    #gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
@@ -51,3 +53,4 @@ Rake::RDocTask.new do |rdoc|
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
+
