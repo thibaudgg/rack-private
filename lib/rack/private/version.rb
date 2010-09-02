@@ -1,5 +1,5 @@
 module Rack
-  class Staging
+  class Private
     VERSION = "0.1.0"
   end
 end

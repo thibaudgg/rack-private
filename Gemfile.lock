@@ -1,15 +1,19 @@
 PATH
   remote: .
   specs:
-    rack-staging (0.1.0)
+    rack-private (0.1.0)
 
 GEM
   remote: http://rubygems.org/
   specs:
+    rack (1.2.1)
+    shoulda (2.11.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (>= 1.0.0.rc.5)
-  rack-staging!
+  bundler (>= 1.0.0)
+  rack (~> 1.2.0)
+  rack-private!
+  shoulda (~> 2.11.3)
