@@ -1,6 +1,6 @@
 = Rack::Private
 
-Rack::Private middleware purpose to protect you Rack application from anonymous via a secret token form.
+Private Rack middleware purpose is to protect your Rack application from anonymous via a secret code form.
 
 == Installation
 

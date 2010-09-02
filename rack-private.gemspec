@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Thibaud Guillaume-Gentil"]
   s.email       = ["thibaud@thibaud.me"]
   s.homepage    = "http://github.com/thibaudgg/rack-private"
-  s.summary     = "Protect you Rack application from anonymous."
-  s.description = "Rack::Private middleware purpose to protect you Rack application from anonymous via a secret token form."
+  s.summary     = "Protect your Rack application from anonymous."
+  s.description = "Private Rack middleware purpose is to protect your Rack application from anonymous via a secret code form."
   
   s.required_rubygems_version = ">= 1.3.6"
   s.rubyforge_project         = "rack-private"
