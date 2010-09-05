@@ -24,7 +24,7 @@ module Rack
   private
     # Render staging html file
     def render_private_form
-      [200, {'Content-Type' => 'application/html'}, [
+      [200, {'Content-Type' => 'text/html'}, [
         ::File.open(html_template, 'rb').read
       ]]
     end
