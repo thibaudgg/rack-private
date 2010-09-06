@@ -19,7 +19,7 @@ class TestRackPrivate < Test::Unit::TestCase
     
     should 'redirect if private_code submitted is valid' do
       post '/', :private_code => 'secret'
-      assert_equal 301, last_response.status
+      assert_equal 307, last_response.status
       assert_equal '/', last_response.location
     end
     
@@ -52,13 +52,13 @@ class TestRackPrivate < Test::Unit::TestCase
     
     should 'redirect if private_code submitted is valid' do
       post '/', :private_code => 'secret'
-      assert_equal 301, last_response.status
+      assert_equal 307, last_response.status
       assert_equal '/', last_response.location
     end
     
     should 'redirect if super private_code submitted is valid' do
       post '/', :private_code => 'super-secret'
-      assert_equal 301, last_response.status
+      assert_equal 307, last_response.status
       assert_equal '/', last_response.location
     end
     
