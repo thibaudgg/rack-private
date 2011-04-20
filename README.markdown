@@ -39,4 +39,4 @@ use Rack::Private :code => 'secret', :template_path => Rails.root.join("app/temp
 Author
 ------
 
-* {Thibaud Guillaume-Gentil}[http://github.com/thibaudgg]
+* [Thibaud Guillaume-Gentil](http://github.com/thibaudgg)
