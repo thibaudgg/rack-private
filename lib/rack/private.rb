@@ -16,7 +16,7 @@ module Rack
       if request.post? && code_valid?(request.params["private_code"])
         request.session[:private_code] = request.params["private_code"]
         body = "<html><body>Secret code is valid.</body></html>"
-        [307, { 'Content-Type' => 'text/html', 'Location' => '/' }, [body]] # Redirect if code is valid
+        [303, { 'Content-Type' => 'text/html', 'Location' => '/' }, [body]] # Redirect if code is valid
       else
         render_private_form
       end
