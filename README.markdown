@@ -28,7 +28,7 @@ And provide your own template.
 use Rack::Private :code => 'secret', :template_path => Rails.root.join("app/templates/private.html")
 ```
 
-== Note on Patches/Pull Requests
+### Note on Patches/Pull Requests ###
 
 * Fork the project.
 * Make your feature addition or bug fix.
