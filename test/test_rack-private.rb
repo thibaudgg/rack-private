@@ -73,5 +73,26 @@ class TestRackPrivate < Test::Unit::TestCase
       assert_equal true, last_response.body.include?('Hello world')
     end
   end
+  
+  context 'with exceptions' do
+    setup do
+      mock_app  :codes => ['secret','super-secret'], 
+                :exceptions => ['foo']
+    end
+    
+    should 'hide pages like normal' do
+      get "/"
+      assert_equal 200, last_response.status
+      assert_equal true, last_response.body.include?('Private access')
+    end
+    
+    should 'not hide specified page' do
+      get "/foo"
+      assert_equal 200, last_response.status
+      assert_equal false, last_response.body.include?('Private access')
+      assert_equal true, last_response.body.include?('Hello world')
+    end
+    
+  end
 
 end

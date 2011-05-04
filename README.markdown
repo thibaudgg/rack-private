@@ -28,6 +28,12 @@ And provide your own template.
 use Rack::Private :code => 'secret', :template_path => Rails.root.join("app/templates/private.html")
 ```
 
+You can specify exceptions, using strings or regular expressions
+
+``` ruby
+use Rack::Private :code => 'secret', :exceptions => ["public_page"]
+```
+
 ### Note on Patches/Pull Requests ###
 
 * Fork the project.
