@@ -31,13 +31,13 @@ use Rack::Private :code => 'secret', :template_path => Rails.root.join("app/temp
 You can specify exceptions, using strings or regular expressions
 
 ``` ruby
-use Rack::Private :code => 'secret', :exceptions => ["public"]
+use Rack::Private :code => 'secret', :except => ["public"]
 ```
 
 This will allow access to *any* URL containing 'public'. If you want more control, use a regular expression: 
 
 ``` ruby
-use Rack::Private :code => 'secret', :exceptions => [/public$/]
+use Rack::Private :code => 'secret', :except => [/public$/]
 ```
 
 This will only allow access to URLs that *end* in 'public'. You can use any expressions you want. 
