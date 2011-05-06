@@ -34,16 +34,14 @@ You can specify exceptions, using strings or regular expressions
 use Rack::Private :code => 'secret', :except => ["public"]
 ```
 
-This will allow access to *any* URL containing 'public'. If you want more control, use a regular expression: 
+This will allow access to *any* URL containing 'public'. If you want more control, use a regular expression:
 
 ``` ruby
 use Rack::Private :code => 'secret', :except => [/public$/]
 ```
 
-This will only allow access to URLs that *end* in 'public'. You can use any expressions you want. 
+This will only allow access to URLs that *end* in 'public'. You can use any expressions you want.
 
-
-```
 
 Note on Patches/Pull Requests
 -----------------------------
