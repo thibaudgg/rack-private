@@ -45,7 +45,8 @@ This will only allow access to URLs that *end* in 'public'. You can use any expr
 
 ```
 
-### Note on Patches/Pull Requests ###
+Note on Patches/Pull Requests
+-----------------------------
 
 * Fork the project.
 * Make your feature addition or bug fix.
