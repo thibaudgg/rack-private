@@ -10,7 +10,7 @@ module Rack
       request = Rack::Request.new(env)
       
       # Check code in session and return Rails call if is valid
-      return @app.call(env) if already_auth?(request)
+      return @app.call(env) if (already_auth?(request) || public_page?(request))
       
       # If post method check :code_param value
       if request.post? && code_valid?(request.params["private_code"])
@@ -42,6 +42,12 @@ module Rack
     def already_auth?(request)
       code_valid?(request.session[:private_code])
     end
+    
+    # Checks if the url matches one of our exception strings or regexs
+    def public_page?(request)
+      @options[:except] && @options[:except].find {|x| request.url.match(x)}
+    end
+    
   end
 end
 
