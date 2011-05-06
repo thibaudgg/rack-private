@@ -77,7 +77,7 @@ class TestRackPrivate < Test::Unit::TestCase
   context 'with exceptions' do
     setup do
       mock_app  :codes => ['secret','super-secret'], 
-                :exceptions => [/foo$/, 'public',]
+                :except => [/foo$/, 'public',]
     end
     
     should 'hide pages like normal' do

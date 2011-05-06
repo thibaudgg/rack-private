@@ -45,7 +45,7 @@ module Rack
     
     # Checks if the url matches one of our exception strings or regexs
     def public_page?(request)
-      @options[:exceptions] && @options[:exceptions].find {|x| request.url.match(x)}
+      @options[:except] && @options[:except].find {|x| request.url.match(x)}
     end
     
   end
