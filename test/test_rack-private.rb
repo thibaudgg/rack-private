@@ -154,4 +154,47 @@ class TestRackPrivate < Test::Unit::TestCase
       assert_equal true, last_response.body.include?('Hello world')
     end
   end
+
+  context 'with exception path and HTTP method' do
+    setup do
+      mock_app :codes => ['secret','super-secret'] do
+        except /foo$/, :method => 'post'
+        except 'public', :method => :get
+      end
+    end
+
+    should 'hide pages like normal' do
+      get "/"
+      assert_equal 200, last_response.status
+      assert_equal true, last_response.body.include?('Private access')
+    end
+
+    should 'hide specified url "foo"' do
+      get "/foo"
+      assert_equal 200, last_response.status
+      assert_equal true, last_response.body.include?('Private access')
+      assert_equal false, last_response.body.include?('Hello world')
+    end
+
+    should 'not hide specified url "foo"' do
+      post "/foo"
+      assert_equal 200, last_response.status
+      assert_equal false, last_response.body.include?('Private access')
+      assert_equal true, last_response.body.include?('Hello world')
+    end
+
+    should 'hide specified url "public"' do
+      post "/public"
+      assert_equal 200, last_response.status
+      assert_equal true, last_response.body.include?('Private access')
+      assert_equal false, last_response.body.include?('Hello world')
+    end
+
+    should 'not hide specified url "public"' do
+      get "/public"
+      assert_equal 200, last_response.status
+      assert_equal false, last_response.body.include?('Private access')
+      assert_equal true, last_response.body.include?('Hello world')
+    end
+  end
 end

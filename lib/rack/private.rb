@@ -56,11 +56,21 @@ module Rack
     end
 
     def exception?(request, exception)
-      request.url.match(exception)
+      path, method = *exception
+      matches_path?(request, path) && matches_method?(request, method)
     end
 
-    def except(match)
-      @exceptions << match
+    def matches_path?(request, path)
+      request.url.match(path)
+    end
+
+    def matches_method?(request, method)
+      return true if method.nil?
+      request.request_method.downcase == method.values.first.downcase.to_s
+    end
+
+    def except(match, method = nil)
+      @exceptions << [match, method]
     end
   end
 end

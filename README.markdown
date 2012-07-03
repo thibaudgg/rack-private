@@ -53,6 +53,15 @@ use Rack::Private, :code => 'secret' do
 end
 ```
 
+You can also specify a HTTP method in the block form
+
+``` ruby
+use Rack::Private, :code => 'secret' do
+  except /foo$/, :method => 'post'
+  except 'public', :method => :get
+end
+```
+
 Note on Patches/Pull Requests
 -----------------------------
 
