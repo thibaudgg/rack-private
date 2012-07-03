@@ -1,9 +1,16 @@
 module Rack
   class Private
     
-    def initialize(app, options = {})
+    def initialize(app, options = {}, &block)
       @app = app
       @options = options
+      @exceptions = []
+
+      unless options[:except].nil?
+        options[:except].each {|exception| except(exception) }
+      end
+
+      instance_eval(&block) if block_given?
     end
     
     def call(env)
@@ -45,9 +52,16 @@ module Rack
     
     # Checks if the url matches one of our exception strings or regexs
     def public_page?(request)
-      @options[:except] && @options[:except].find {|x| request.url.match(x)}
+      @exceptions.find {|exception| exception?(request, exception)}
     end
-    
+
+    def exception?(request, exception)
+      request.url.match(exception)
+    end
+
+    def except(match)
+      @exceptions << match
+    end
   end
 end
 

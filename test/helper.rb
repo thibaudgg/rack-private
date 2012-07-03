@@ -13,14 +13,14 @@ class Test::Unit::TestCase
   
   def app; Rack::Lint.new(@app); end
   
-  def mock_app(options)
+  def mock_app(options, &block)
     main_app = lambda { |env|
       request = Rack::Request.new(env)
       [200, { 'Content-Type' => 'text/html' }, ['Hello world']]
     }
     
     builder = Rack::Builder.new
-    builder.use Rack::Private, options
+    builder.use Rack::Private, options, &block
     builder.run main_app
     @app = builder.to_app
   end
