@@ -44,6 +44,23 @@ use Rack::Private, :code => 'secret', :except => [/public$/]
 
 This will only allow access to URLs that *end* in 'public'. You can use any expressions you want.
 
+If you have a lot of exceptions, you can specify a block
+
+``` ruby
+use Rack::Private, :code => 'secret' do
+  except /foo$/
+  except 'public'
+end
+```
+
+You can also specify a HTTP method in the block form
+
+``` ruby
+use Rack::Private, :code => 'secret' do
+  except /foo$/, :method => 'post'
+  except 'public', :method => :get
+end
+```
 
 Note on Patches/Pull Requests
 -----------------------------
