@@ -10,7 +10,7 @@ end
 
 task :default => :test
 
-require 'rake/rdoctask'
+require 'rdoc/task'
 require 'rack/private/version'
 Rake::RDocTask.new do |rdoc|
   rdoc.rdoc_dir = 'rdoc'
