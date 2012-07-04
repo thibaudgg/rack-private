@@ -1,4 +1,4 @@
-require 'bundler'
+require 'bundler/setup'
 Bundler::GemHelper.install_tasks
 
 require 'rake/testtask'
@@ -9,12 +9,3 @@ Rake::TestTask.new(:test) do |test|
 end
 
 task :default => :test
-
-require 'rdoc/task'
-require 'rack/private/version'
-Rake::RDocTask.new do |rdoc|
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "rack-private #{Rack::Private::VERSION}"
-  rdoc.rdoc_files.include('README*')
-  rdoc.rdoc_files.include('lib/**/*.rb')
-end
